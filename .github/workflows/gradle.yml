@@ -29,6 +29,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     - name: Grant execute permission to gradlew
-      run: chmod +x ./demo/gradlew
+      run: chmod +x ./gradlew
     - name: Build with Gradle
       run: ./gradlew build --no-daemon
