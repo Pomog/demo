@@ -1,4 +1,4 @@
-package com.demo.demo;
+package com.demo;
 
 import java.io.*;
 
@@ -13,14 +13,18 @@ public class HelloServlet extends HttpServlet {
         message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, IOException {
         response.setContentType("text/html");
+
+        System.out.println("***************************************************TEST PPC");
 
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
+        out.flush();
     }
 
     public void destroy() {
