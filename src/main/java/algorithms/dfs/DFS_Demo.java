@@ -18,13 +18,16 @@ public class DFS_Demo {
         Vertex<Integer> v7 = new Vertex<>(7);
         Vertex<Integer> v8 = new Vertex<>(8);
 
-        // adjacency list of the tree
+        // adjacency list of the tree. it is not a really List
         v0.setNeighbors(List.of(v1, v5, v6));
         v1.setNeighbors(List.of(v3, v4, v5));
         v4.setNeighbors(List.of(v2, v6));
         v6.setNeighbors(List.of(v0, v8));
         v2.setNeighbors(List.of(v7));
         v7.setNeighbors(List.of(v6));
+
+        // adjacency List of the tree
+        List<Vertex<Integer>> adjacencyList = List.of(v0, v1, v2, v3, v4, v5, v6, v7, v8);
 
 //        System.out.println("traverseRecursivelyStream");
 //        new DFS<>(v0).traverseRecursivelyStream(v0);
@@ -36,6 +39,6 @@ public class DFS_Demo {
 //        new DFS<>(v0).findLeaves();
 
         System.out.println("TreeHeight");
-        System.out.println(new DFS<>(v0).height(v0));
+        System.out.println(new DFS<>(adjacencyList.get(0)).height(adjacencyList.get(0)));
     }
 }

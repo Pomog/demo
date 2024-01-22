@@ -2,7 +2,6 @@ package algorithms.dfs;
 
 import algorithms.Vertex;
 
-import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -66,7 +65,7 @@ public class DFS<T> {
     }
 
     public Integer height(Vertex<T> vertex) {
-        if (vertex == null || vertex.isVisited()) {
+        if (vertex == null) {
             return -1;
         }
 
@@ -76,10 +75,7 @@ public class DFS<T> {
 
         for (Vertex<T> neighbor : vertex.getNeighbors()) {
             if (!neighbor.isVisited()) {
-                int childHeight = height(neighbor);
-                maxHeight = Math.max(maxHeight, childHeight);
-                System.out.println(neighbor);
-                System.out.println(maxHeight);
+                maxHeight = Math.max(maxHeight, height(neighbor));
             }
         }
 
