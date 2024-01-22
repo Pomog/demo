@@ -22,7 +22,6 @@ public class DFS<T> {
             if (!current.isVisited()) {
                 current.setVisited(true);
                 System.out.println(current);
-                Collections.reverse(current.getNeighbors());
                 current.getNeighbors().forEach(stack::push);
             }
         }
@@ -45,4 +44,48 @@ public class DFS<T> {
                 .filter(neighbor -> !neighbor.isVisited())
                 .forEach(this::traverseRecursivelyStream);
     }
+
+    public void findLeaves() {
+        Deque<Vertex<T>> stack = new LinkedList<>();
+        stack.push(startVertex);
+
+        while (!stack.isEmpty()){
+            Vertex<T> current = stack.pop();
+            if (!current.isVisited()) {
+                current.setVisited(true);
+
+                boolean isLeaf = current.getNeighbors().stream()
+                        .allMatch(Vertex::isVisited);
+
+                if (isLeaf) {
+                    System.out.println(current);
+                }
+                current.getNeighbors().forEach(stack::push);
+            }
+        }
+    }
+
+    public Integer height(Vertex<T> vertex) {
+        if (vertex == null || vertex.isVisited()) {
+            return -1;
+        }
+
+        vertex.setVisited(true);
+
+        int maxHeight = -1;
+
+        for (Vertex<T> neighbor : vertex.getNeighbors()) {
+            if (!neighbor.isVisited()) {
+                int childHeight = height(neighbor);
+                maxHeight = Math.max(maxHeight, childHeight);
+                System.out.println(neighbor);
+                System.out.println(maxHeight);
+            }
+        }
+
+        vertex.setVisited(false);
+
+        return 1 + maxHeight;
+    }
+
 }

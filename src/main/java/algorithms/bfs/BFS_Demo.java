@@ -15,6 +15,7 @@ public class BFS_Demo {
         Vertex<Integer> v5 = new Vertex<>(5);
         Vertex<Integer> v6 = new Vertex<>(6);
 
+        // adjacency list of the tree
         v0.setNeighbors(List.of(v1, v5, v6));
         v1.setNeighbors(List.of(v3, v4, v5));
         v4.setNeighbors(List.of(v2, v6));
