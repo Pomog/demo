@@ -1,10 +1,11 @@
-package algorithms.bfs;
+package algorithms.dfs;
 
 import algorithms.Vertex;
+import algorithms.bfs.BFS;
 
 import java.util.List;
 
-public class BFS_Demo {
+public class DFS_Demo {
     public static void main(String[] args) {
 
         Vertex<Integer> v0 = new Vertex<>(0);
@@ -20,6 +21,6 @@ public class BFS_Demo {
         v4.setNeighbors(List.of(v2, v6));
         v6.setNeighbors(List.of(v0));
 
-        new BFS<>(v0).traverse();
+        new DFS<>(v0).traverseRecursivelyStream(v0);
     }
 }

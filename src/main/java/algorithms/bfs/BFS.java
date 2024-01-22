@@ -1,5 +1,7 @@
 package algorithms.bfs;
 
+import algorithms.Vertex;
+
 import java.util.LinkedList;
 import java.util.Queue;
 

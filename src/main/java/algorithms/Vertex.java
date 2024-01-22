@@ -1,4 +1,4 @@
-package algorithms.bfs;
+package algorithms;
 
 
 import lombok.Data;
