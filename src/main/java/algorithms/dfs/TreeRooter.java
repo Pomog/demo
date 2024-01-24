@@ -28,10 +28,6 @@ public class TreeRooter<T> {
                 add(childNode);
             }};
             System.out.println("Now is: " + graph.get(currentNodeIndex) + " ---> " + childNode);
-            List<Vertex<T>> currentPathREV = new ArrayList<>() {{
-                add(childNode);
-                add(graph.get(currentNodeIndex));
-            }};
 
             // Avoid adding an edge pointing back to the parent
             if (parentNode != null && childNode == parentNode)
@@ -39,7 +35,7 @@ public class TreeRooter<T> {
                  System.out.println("Not included - parentNode");
                 continue;
             }
-            if ((paths.contains(currentPath)) || (paths.contains(currentPathREV))) {
+            if (paths.contains(currentPath)){
                 System.out.println("Not included - PATH exist");
                 continue;
             }
