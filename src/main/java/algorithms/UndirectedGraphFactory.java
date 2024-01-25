@@ -1,7 +1,5 @@
 package algorithms;
 
-import algorithms.dfs.TreeRooter;
-
 import java.util.List;
 
 public class UndirectedGraphFactory {

@@ -8,15 +8,14 @@ import java.util.List;
 public class Root_Demo {
     public static void main(String[] args) {
 
-        // adjacency List of the tree
+        // adjacency List of the undirected graph tree
         List<Vertex<Integer>> adjacencyList = new UndirectedGraphFactory().getGraph();
-
 
         // Create a TreeRooter instance
         TreeRooter<Integer> treeRooter = new TreeRooter<>(0, adjacencyList);
 
         // Print the root of the tree
-        System.out.println("Root of the tree: " + treeRooter.GetRootNode());
+        System.out.println("Root of the tree: " + treeRooter.getRoot());
 
         // Print all nodes
         System.out.println("All nodes in the tree:");

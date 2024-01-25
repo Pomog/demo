@@ -11,7 +11,24 @@ import java.util.List;
 @ToString(exclude = {"neighbors", "parents", "children", "visited"})
 public class Vertex<T> {
     private final T data;
+    // Indicates whether the vertex has been visited during graph traversal.
+    private boolean visited;
+    // Represents the vertices connected to this vertex through edges. For undirected graphs.
+    private List<Vertex<T>> neighbors = new LinkedList<>();
+    private List<Vertex<T>> parents = new LinkedList<>();
+    // Represents the child vertices in the graph hierarchy.
+    private List<Vertex<T>> children = new LinkedList<>();
 
+    public Vertex(T data) {
+        this.data = data;
+    }
+
+    /**
+     * Overrides the equals method to compare vertices based on their data.
+     *
+     * @param o The object to compare with this vertex.
+     * @return True if the vertices have the same data, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,12 +43,4 @@ public class Vertex<T> {
     public int hashCode() {
         return data.hashCode();
     }
-
-    public Vertex(T data) {
-        this.data = data;
-    }
-    private boolean visited;
-    private List<Vertex<T>> neighbors = new LinkedList<>();
-    private List<Vertex<T>> parents = new LinkedList<>();
-    private List<Vertex<T>> children = new LinkedList<>();
 }
