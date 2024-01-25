@@ -21,14 +21,24 @@ public class TreeRooter<T> {
     private final List<Vertex<T>> undirectedGraph;
     private List<List<Vertex<T>>> paths = new ArrayList<>();
 
+    /**
+     * Constructs a TreeRooter with the specified root index and undirected graph.
+     *
+     * @param rootIndex      The index of the root vertex.
+     * @param undirectedGraph The list of vertices representing the undirected graph.
+     * @throws IllegalArgumentException if rootIndex is not within the valid range of indices.
+     */
     public TreeRooter(Integer rootIndex, List<Vertex<T>> undirectedGraph) {
+        if (rootIndex < 0 || rootIndex >= undirectedGraph.size()) {
+            throw new IllegalArgumentException("Invalid rootIndex: " + rootIndex);
+        }
         this.rootIndex = rootIndex;
         this.undirectedGraph = undirectedGraph;
     }
 
     /**
      * Performs a tree-rooting algorithm on the undirected graph starting from the specified root index.
-     * It uses depth-first search (BFS) to traverse the graph, identify paths, and root the tree.
+     * It uses breadth-first search (BFS) to traverse the graph, identify paths, and root the tree.
      *
      * @return The root vertex of the resulting directed rooted tree.
      */

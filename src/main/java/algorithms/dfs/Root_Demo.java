@@ -12,10 +12,16 @@ public class Root_Demo {
         List<Vertex<Integer>> adjacencyList = new UndirectedGraphFactory().getGraph();
 
         // Create a TreeRooter instance
-        TreeRooter<Integer> treeRooter = new TreeRooter<>(0, adjacencyList);
+        try {
+            TreeRooter<Integer> treeRooter = new TreeRooter<>(0, adjacencyList);
+            // Print the root of the tree
+            System.out.println("Root of the tree: " + treeRooter.getRoot());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error: " + e.getMessage());
+            System.exit(1);
+        }
 
-        // Print the root of the tree
-        System.out.println("Root of the tree: " + treeRooter.getRoot());
+
 
         // Print all nodes
         System.out.println("All nodes in the tree:");
