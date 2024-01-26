@@ -1,4 +1,4 @@
-package algorithms.dfs;
+package algorithms.root;
 
 import algorithms.UndirectedGraphFactory;
 import algorithms.Vertex;
