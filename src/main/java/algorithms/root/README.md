@@ -1,7 +1,5 @@
 # Tree Rooting Algorithm for Undirected Graphs
 
-# Tree Rooting Algorithm for Undirected Graphs
-
 This Java project implements a tree-rooting algorithm for undirected graphs using breadth-first search (BFS).
 
 The algorithm traverses the graph, identifies paths, and roots the resulting tree.
