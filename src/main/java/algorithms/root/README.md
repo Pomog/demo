@@ -38,3 +38,7 @@ java -cp build/classes/java/main algorithms.root.Root_Demo
 or use any IDE
 
 Make sure to handle the exception thrown in case of an invalid root index.
+
+## Issues and TODOs
+
+- [ ] **Improve Efficiency and Clarity**: Avoid using both 'edge' and 'edgeReversed' in `processNeighbor` for better efficiency and clarity. 
