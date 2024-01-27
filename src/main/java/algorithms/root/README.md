@@ -14,7 +14,7 @@ Balls and the connections between them are described by the `Vertex` class.
 
 The `UndirectedGraphFactory` function creates an instance of such a set of interconnected balls.
 
-The `TreeRooter` function simulates the structuring of these balls during the lifting of the entire structure from a chosen ball - the root. No properties of the connections (strings) are taken into account.
+The `getRoot` method of the `TreeRooter` class simulates the process of establishing the root of a tree structure, akin to lifting the entire structure from a selected starting point, represented by a chosen ball. This method focuses solely on the hierarchical arrangement of the balls without considering the properties of the connections (strings) between them.
 
 Each ball has information about which ball or balls it is connected to above - it becomes a parent, and which ball or balls it is connected to below - it becomes a child.
 
