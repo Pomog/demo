@@ -4,6 +4,8 @@ This Java project implements a tree-rooting algorithm for undirected graphs usin
 
 The algorithm traverses the graph, identifies paths, and roots the resulting tree.
 
+Note that **the initial graph may contain cycles**, as cycles are allowed in undirected graphs. However, the algorithm ensures (using the `parents` and `children` properties of the `Vertex<T>` class) that the resulting tree structure is acyclic, adhering to the definition of a tree in graph theory.
+
 ## Overview
 
 Imagine there is a set of balls on a table connected by strings (an undirected graph).
