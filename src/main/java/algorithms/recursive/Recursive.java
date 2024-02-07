@@ -1,18 +1,21 @@
 package algorithms.recursive;
 
-public class Factorial {
+public class Recursive {
     public static void main(String[] args) {
         int n = 11;
 //        System.out.println(calculateFactorial(n));
 //        System.out.println(calculateFibonacci(n));
-        System.out.println(getSubsequences("abc"));
+//        String exampleString = "A";
+//        System.out.println(getSubsequences(exampleString));
+
+        towerOfHanoi(3, 'X', 'Y', 'Z');
 
     }
 
     /**
-     * Calculates the Factorial of a given number recursively.
-     * @param n The number for which Factorial is to be calculated.
-     * @return The Factorial of the given number.
+     * Calculates the Recursive of a given number recursively.
+     * @param n The number for which Recursive is to be calculated.
+     * @return The Recursive of the given number.
      */
     private static Integer calculateFactorial(int n) {
         if (n <= 1) {
@@ -63,7 +66,23 @@ public class Factorial {
 
         // Remove the leading comma before returning the result
         return  result.substring(1);
+    }
 
-
+    /**
+     * Solves the Tower of Hanoi problem for a given number of disks.
+     *
+     * @param n   The number of disk to be moved.
+     * @param from The rod from which disks are to be moved.
+     * @param to   The rod to which disks are to be moved.
+     * @param aux  The auxiliary rod used for intermediate storage.
+     */
+    private static void towerOfHanoi (int n, char from, char to, char aux){
+        if (n == 1){
+            System.out.println("Moving the disk 1 from " + from + " to the " + to + " rod.");
+        } else {
+            towerOfHanoi(n - 1, from, aux, to);
+            System.out.println("Moving the disk " + n + " from " + from + " to the " + to + " rod.");
+            towerOfHanoi(n - 1, aux, to, from);
+        }
     }
 }
