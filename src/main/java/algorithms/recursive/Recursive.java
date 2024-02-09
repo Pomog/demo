@@ -86,3 +86,10 @@ public class Recursive {
         }
     }
 }
+//                                                         towerOfHanoi(1, X, Y, Z)
+//                             towerOfHanoi(2, X, Z, Y) ->
+//                                                         towerOfHanoi(1, Y, Z, X)
+// towerOfHanoi(3, X, Y, Z) ->
+//                                                         towerOfHanoi(1, Z, X, Y)
+//                             towerOfHanoi(2, Z, Y, X) ->
+//                                                         towerOfHanoi(1, X, Y, Z)
