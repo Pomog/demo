@@ -1,5 +1,7 @@
 package algorithms.recursive;
 
+import java.util.List;
+
 public class Recursive {
     public static void main(String[] args) {
         int n = 11;
@@ -8,7 +10,14 @@ public class Recursive {
 //        String exampleString = "A";
 //        System.out.println(getSubsequences(exampleString));
 
-        towerOfHanoi(3, 'X', 'Y', 'Z');
+//        towerOfHanoi(3, 'X', 'Y', 'Z');
+        
+        List<Object> list1 = List.of(2, 3);
+        List<Object> list2 = List.of(2, 4);
+        List<Object> list3 = List.of(list1, 1);
+        List<Object> list4 = List.of(1, 2, list3);
+        System.out.println(productSum(list4, 1));
+        
 
     }
 
@@ -85,7 +94,7 @@ public class Recursive {
             towerOfHanoi(n - 1, aux, to, from);
         }
     }
-}
+
 //                                                         towerOfHanoi(1, X, Y, Z)
 //                             towerOfHanoi(2, X, Z, Y) ->
 //                                                         towerOfHanoi(1, Y, Z, X)
@@ -93,3 +102,25 @@ public class Recursive {
 //                                                         towerOfHanoi(1, Z, X, Y)
 //                             towerOfHanoi(2, Z, Y, X) ->
 //                                                         towerOfHanoi(1, X, Y, Z)
+
+    /**
+     * Calculates the product sum of a nested list recursively.
+     * Product sum is the sum of each element in the list multiplied by its depth.
+     * @param list The nested list containing integers or nested lists.
+     * @param depth The current depth of the nested list.
+     * @return The product sum of the nested list.
+     */
+    private static int productSum(List<Object> list, int depth) {
+        int sum = 0;
+        for (Object obj : list) {
+            if (obj instanceof List) {
+                // Recursively calculate product sum for nested list
+                sum += productSum((List<Object>) obj, depth + 1);
+            } else {
+                // Add integer value to sum
+                sum += (int) obj;
+            }
+        }
+        // Multiply sum by depth
+        return sum * depth;
+    }}
