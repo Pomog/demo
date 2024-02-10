@@ -12,11 +12,13 @@ public class Recursive {
 
 //        towerOfHanoi(3, 'X', 'Y', 'Z');
         
-        List<Object> list1 = List.of(2, 3);
-        List<Object> list2 = List.of(2, 4);
-        List<Object> list3 = List.of(list1, 1);
-        List<Object> list4 = List.of(1, 2, list3);
-        System.out.println(productSum(list4, 1));
+//        List<Object> list1 = List.of(2, 3);
+//        List<Object> list2 = List.of(2, 4);
+//        List<Object> list3 = List.of(list1, 1);
+//        List<Object> list4 = List.of(1, 2, list3);
+//        System.out.println(productSum(list4, 1));
+    
+    
         
 
     }
@@ -123,4 +125,5 @@ public class Recursive {
         }
         // Multiply sum by depth
         return sum * depth;
-    }}
+    }
+}
