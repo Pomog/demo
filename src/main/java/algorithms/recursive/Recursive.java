@@ -5,22 +5,19 @@ import java.util.List;
 public class Recursive {
     public static void main(String[] args) {
         int n = 11;
-//        System.out.println(calculateFactorial(n));
-//        System.out.println(calculateFibonacci(n));
-//        String exampleString = "A";
-//        System.out.println(getSubsequences(exampleString));
-
-//        towerOfHanoi(3, 'X', 'Y', 'Z');
+        System.out.println(calculateFactorial(n));
+        System.out.println(calculateFibonacci(n));
         
-//        List<Object> list1 = List.of(2, 3);
-//        List<Object> list2 = List.of(2, 4);
-//        List<Object> list3 = List.of(list1, 1);
-//        List<Object> list4 = List.of(1, 2, list3);
-//        System.out.println(productSum(list4, 1));
-    
-    
-        
+        String exampleString = "ABC";
+        System.out.println(getSubsequences(exampleString));
 
+        towerOfHanoi(3, 'X', 'Y', 'Z');
+        
+        List<Object> list1 = List.of(2, 3);
+        List<Object> list2 = List.of(2, 4);
+        List<Object> list3 = List.of(list1, 1);
+        List<Object> list4 = List.of(1, 2, list3);
+        System.out.println(productSum(list4, 1));
     }
 
     /**

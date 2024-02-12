@@ -15,7 +15,6 @@ public class BinarySubtree {
         Node binarySubTreeRoot = nodeFactory.createBinarySubTree();
         
         System.out.println(checkSubtree(binaryTreeRoot, binarySubTreeRoot));
-        
     }
     
     /**
