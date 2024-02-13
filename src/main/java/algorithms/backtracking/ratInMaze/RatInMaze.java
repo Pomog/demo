@@ -1,4 +1,4 @@
-package algorithms.backtracking;
+package algorithms.backtracking.ratInMaze;
 
 /*
 Objects: maze as matrix with 1 and 0 cells, 1 - allowed, 0 - not allowed: The Rat in a maze - abstraction.

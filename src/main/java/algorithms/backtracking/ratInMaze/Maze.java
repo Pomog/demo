@@ -1,4 +1,4 @@
-package algorithms.backtracking;
+package algorithms.backtracking.ratInMaze;
 
 public class Maze {
     int[][] maze;

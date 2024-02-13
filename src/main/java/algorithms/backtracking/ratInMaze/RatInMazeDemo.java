@@ -1,4 +1,4 @@
-package algorithms.backtracking;
+package algorithms.backtracking.ratInMaze;
 
 public class RatInMazeDemo {
     public static void main(String[] args) {
