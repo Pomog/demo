@@ -5,7 +5,7 @@ import algorithms.backtracking.ratInMaze.Maze;
 public class NQeenDemo {
     static int iteration = 0;
     public static void main(String[] args) {
-        Maze board = new Maze(8, 8);
+        Maze board = new Maze(15, 15);
         
         if (saveTheQueens(board, 0)) {
             System.out.println(board.toString());
@@ -16,8 +16,8 @@ public class NQeenDemo {
     }
     
     private static boolean saveTheQueens(Maze board, int col) {
-        iteration++;
         System.out.println(board.toString());
+        iteration++;
         if (col >= board.getXlen()) {
             return true;
         }
@@ -52,17 +52,17 @@ public class NQeenDemo {
             }
         }
         
-        for (i = row, j = col; i < board.getYlen() && j < board.getXlen(); j++, i++) {
-            if (board.getValueAtPosition(j, i) == 1) {
-                return false;
-            }
-        }
+//        for (i = row, j = col; i < board.getYlen() && j < board.getXlen(); j++, i++) {
+//            if (board.getValueAtPosition(j, i) == 1) {
+//                return false;
+//            }
+//        }
         
-        for (i = row, j = col; i >= 0 && j < board.getXlen(); j++, i--) {
-            if (board.getValueAtPosition(j, i) == 1) {
-                return false;
-            }
-        }
+//       for (i = row, j = col; i >= 0 && j < board.getXlen(); j++, i--) {
+//            if (board.getValueAtPosition(j, i) == 1) {
+//                return false;
+//            }
+//       }
 
         for (i = row, j = col; i < board.getYlen() && j >= 0; j--, i++) {
             if (board.getValueAtPosition(j, i) == 1) {
