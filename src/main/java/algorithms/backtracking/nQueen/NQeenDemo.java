@@ -1,6 +1,6 @@
 package algorithms.backtracking.nQueen;
 
-import algorithms.backtracking.ratInMaze.Maze;
+import algorithms.backtracking.maze.Maze;
 
 public class NQeenDemo {
     static int iteration = 0;

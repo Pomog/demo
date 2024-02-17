@@ -1,4 +1,4 @@
-package algorithms.backtracking.ratInMaze;
+package algorithms.backtracking.maze;
 
 public class Maze {
     int[][] maze;
@@ -8,7 +8,7 @@ public class Maze {
         StringBuilder sb = new StringBuilder();
         for (int[] row : maze) {
             for (int cell : row) {
-                sb.append(cell).append(" ");
+                sb.append(cell).append("\t");
             }
             sb.append("\n");
         }

@@ -1,5 +1,8 @@
 package algorithms.backtracking.ratInMaze;
 
+import algorithms.backtracking.maze.Maze;
+import algorithms.backtracking.maze.MazeFactory;
+
 public class RatInMazeDemo {
     public static void main(String[] args) {
         Maze maze = new MazeFactory().getMaze();

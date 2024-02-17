@@ -9,6 +9,7 @@ Backtracking: if there is no ways from the cell - mark it as 0.
 Goal: The Rat reaches cell X=N-1 and Y=N-1, right left conner.
  */
 
+import algorithms.backtracking.maze.Maze;
 import lombok.Getter;
 
 /**

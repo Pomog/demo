@@ -1,4 +1,4 @@
-package algorithms.backtracking.ratInMaze;
+package algorithms.backtracking.maze;
 
 public class MazeFactory {
     
