@@ -73,23 +73,22 @@ public class HuffmanCode {
             node.setLeft(null);
             node.setRight(null);
             
-            System.out.println(node);
-            
             priorityQueue.offer(node);
         }
+        
         while (priorityQueue.size() > 1) {
-            HuffmanNode first = priorityQueue.peek();
-            priorityQueue.poll();
+            HuffmanNode first = priorityQueue.poll();
             
-            HuffmanNode second = priorityQueue.peek();
-            priorityQueue.poll();
-            
+            HuffmanNode second = priorityQueue.poll();
+           
             HuffmanNode mergeNode = new HuffmanNode();
             mergeNode.setLeft(first);
             mergeNode.setRight(second);
             mergeNode.setFreq(first.getFreq() + second.getFreq());
             mergeNode.setData('-');
             root = mergeNode;
+            
+            System.out.println(root);
             
             priorityQueue.offer(mergeNode);
         }
