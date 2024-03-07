@@ -19,14 +19,16 @@ public class CoinChange {
         System.out.printf("Min coins needed, Bottom Up: %d\n", minBT);
     }
     
+    // Bottom Up
     private static int minCoinsBottomToTop(int[] coins, int len, int total) {
         int[] arr = new int[total + 1];
+
+        Arrays.fill(arr, total + 1);
         arr[0] = 0;
         
-        Arrays.fill(arr, Integer.MAX_VALUE - 1);
-        
         for (int i = 0; i < len; i++) {
-            for (int j = 1; j < len; j++) {
+            // target amount
+            for (int j = 1; j < arr.length; j++) {
                 if (coins[i] <= j) {
                     if (1 + arr[j - coins[i]] < arr[j]) {
                         arr[j] = 1 + arr[j - coins[i]];
@@ -34,10 +36,10 @@ public class CoinChange {
                 }
             }
         }
+
+        System.out.println(Arrays.toString(arr));
         return arr[total];
     }
-    
-    // Bottom Up
     
     // Top to Bottom
     private static int minCoinsTopDown(int[] coins, int len, int total, HashMap<Integer, Integer> hashMap) {
