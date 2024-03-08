@@ -37,7 +37,6 @@ public class LongestDecreasingSubsequence {
         return maxSoFar;
     }
     
-    // Bottom Up
     
     // Top to Bottom
     private static int getLDSTD(int[] nums, int prevIdx, int curr, int[][] dp) {
