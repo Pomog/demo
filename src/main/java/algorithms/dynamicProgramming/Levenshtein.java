@@ -42,8 +42,6 @@ public class Levenshtein {
         return lDist[str1.length()][str2.length()];
     }
     
-    // Bottom Up
-    
     // Top to Bottom
     private static int getLDistTD(String str1, String str2, int m, int n, int[][] dp) {
         if (m == 0 || n == 0) {
