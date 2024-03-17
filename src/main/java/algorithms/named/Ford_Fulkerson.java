@@ -14,10 +14,10 @@ public class Ford_Fulkerson {
                 {0,0,0,0,0,0}
         };
         
-        getMaxFlow(graph, 0, graph.length-1);
+        System.out.printf("The MAX possible flow is %d\n", getMaxFlow(graph, 0, graph.length-1));
     }
     
-    private static void getMaxFlow(int[][] graph, int source, int sink) {
+    private static int getMaxFlow(int[][] graph, int source, int sink) {
         int[][] residualGraph = Arrays.stream(graph)
                 .map(int[]::clone) // Cloning each row
                 .toArray(int[][]::new); // Collecting as a 2D array
@@ -25,13 +25,46 @@ public class Ford_Fulkerson {
         Map<Integer, Integer> parentMapping = new HashMap<>();
         List<List<Integer>> augmentingPaths = new ArrayList<>();
         
+        int maxFlow = 0;
         while (getAugmentingPath(residualGraph, parentMapping, source,sink)){
             List<Integer> augPath = new ArrayList<>();
             int flow = Integer.MAX_VALUE;
             
+            int v=sink;
+            while (v != source){
+                augPath.add(v);
+                int u = parentMapping.get(v);
+                
+                if (flow > residualGraph[u][v]){
+                    flow = residualGraph[u][v];
+                }
+                v=u;
+            }
+            augPath.add(source);
             
-        
+            //reverse
+            Collections.reverse(augPath);
+            augmentingPaths.add(augPath);
+            
+            maxFlow += flow;
+            
+            v = sink;
+            while(v != source){
+                int u =  parentMapping.get(v);
+                residualGraph[u][v] -= flow; // edges having residual capacity
+                residualGraph[v][u] += flow; // edges having shrinking capacity
+                
+                v=u;
+            }
         }
+        printAugmentingPaths(augmentingPaths);
+        return maxFlow;
+    }
+    
+    private static void printAugmentingPaths(List<List<Integer>> augmentingPaths) {
+        System.out.print("The Augmenting Paths : ");
+        augmentingPaths.forEach(path -> System.out.print(path + " "));
+        System.out.println();
     }
     
     private static boolean getAugmentingPath(int[][] residualGraph, Map<Integer, Integer> parentMapping, int source, int sink) {
@@ -50,6 +83,7 @@ public class Ford_Fulkerson {
                 if (!visited.contains(v) && residualGraph[u][v] > 0){
                     parentMapping.put(v,u);
                     visited.add(v);
+                    queue.add(v);
                     
                     if (v==sink){
                         gotThePath=true;
@@ -57,8 +91,9 @@ public class Ford_Fulkerson {
                     }
                 }
             }
-            return gotThePath;
+            
         }
+        return gotThePath;
     }
     
 }
