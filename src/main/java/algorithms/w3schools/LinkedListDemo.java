@@ -71,6 +71,14 @@ public class LinkedListDemo {
         linkedList.removeLast();
         System.out.println("LinkedList after removing the last element: " + linkedList);
 
+    // Removing specific element
+        linkedList.remove("Banana");
+        System.out.println("LinkedList after removing the Banana: " + linkedList);
+
+    // Sorting
+        linkedList.sort((s1, s2) -> s1.compareTo(s2));
+        System.out.println("LinkedList after sorting: " + linkedList);
+
     // Checking if the LinkedList contains a specific element
     String searchElement = "Orange";
         if (linkedList.contains(searchElement)) {
