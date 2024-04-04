@@ -223,8 +223,8 @@ li {
   margin-top: 0px;
 }
 
-.avatar {
-  animation: spin 1s ease-in-out infinite;
+.shake1 {
+  animation: spin 0.02s ease-in-out infinite;
 }
 
 @keyframes spin {
@@ -232,21 +232,21 @@ li {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(1deg);
   }
 }
 
-.avatar2 {
-  animation: spin 2s ease-in-out infinite ;
+.shake2 {
+  animation: spin2 0.01s ease-in-out infinite;
   animation-direction: reverse ;
 }
 
-@keyframes spin {
+@keyframes spin2 {
   0% {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(1deg);
   }
 }
 
