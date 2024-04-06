@@ -1,4 +1,3 @@
-
 const body = document.body;
 const photo = document.getElementById("photo");
 
@@ -19,31 +18,48 @@ function shakePhoto() {
     photo.classList.add(shake2);
 }
 
-function discover(){
-    console.log("navigator")
-    console.log(navigator.userAgent); // Browser's user agent string
-
-    console.log(navigator)
-    for (let key in navigator) {
-        console.log(key);
-    }
+function handleClick(id){
+    localStorage.setItem('ClickedProject:', id.toString());
 }
-discover();
 
-async function fetchData() {
+/**
+ * IIFE. Retrieves the current geographical position and stores latitude and longitude in localStorage.
+ */
+(function() {
+    console.log(this);
+    console.log(navigator);
+
+    // Get the current geographical position
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            // Store latitude and longitude in localStorage
+            localStorage.setItem('Latitude:', position.coords.latitude.toString());
+            localStorage.setItem('Longitude:', position.coords.longitude.toString());
+        },
+        function(error) {
+            // If there's an error, store the error message in localStorage
+            localStorage.setItem('Error getting geolocation:', error.message);
+        }
+    );
+})();
+
+/**
+ * Sends the data from Window.localStorage to the server endpoint using fetch.
+ */
+async function sendDataToServer(endpoint) {
     try {
-        const response = await fetch('https://www.7timer.info/bin/astro.php?lon=26&lat=58&ac=0&lang=en&unit=metric&output=internal&tzshift=0');
+        await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(localStorage)
+        });
 
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const res = await response;
-        for (let key in res) {
-            console.log(key)
-            console.log(res[key])
-        }
+        console.log('Data sent to server successfully');
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error sending data to server:', error);
     }
 }
+
+
