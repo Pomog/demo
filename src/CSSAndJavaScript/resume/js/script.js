@@ -18,8 +18,9 @@ function shakePhoto() {
     photo.classList.add(shake2);
 }
 
-function handleClick(id){
-    localStorage.setItem('ClickedProject:', id.toString());
+function saveNameToLocalStorage(id){
+    let projects = localStorage.getItem('ClickedProject:').toString() + ` | ` + id.toString();
+    localStorage.setItem('ClickedProject:', projects);
 }
 
 /**
