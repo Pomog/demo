@@ -22,8 +22,13 @@ public class Traversal {
         
         nodeF.setLeft(nodeG);
         
-        // Pre-order Traversal
+        System.out.println("Pre-order Traversal");
         NodeW3.preOrderTraversal(root);
+        System.out.println("");
+
+        System.out.println("In-order Traversal");
+        NodeW3.inOrderTraversal(root);
+        System.out.println("");
     }
 }
 

@@ -16,8 +16,18 @@ public class NodeW3 {
         if (node == null) {
             return;
         }
-        System.out.print(node + ", ");
+        System.out.print(node.getData() + ", ");
         preOrderTraversal(node.getLeft());
         preOrderTraversal(node.getRight());
     }
+    
+    public static void inOrderTraversal(NodeW3 node) {
+        if (node == null) {
+            return;
+        }
+        inOrderTraversal(node.getLeft());
+        System.out.print(node.getData() + ", ");
+        inOrderTraversal(node.getRight());
+    }
+    
 }
