@@ -152,7 +152,7 @@ li {
 }
 
 .my-projects-title {
-  width: 103.031px;
+  width: 103px;
   color: #000;
   font-size: 22px;
   font-weight: 700;
@@ -175,13 +175,13 @@ li {
   margin-bottom: 40px;
 }
 
-/* Work Expirience */
+/* Work Experience */
 
-.expirience-container {
+.experience-container {
   margin-bottom: 40px;
 }
 
-.expirience-title {
+.experience-title {
   color: #000;
   font-size: 22px;
   font-weight: 700;
