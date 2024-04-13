@@ -23,6 +23,15 @@ public class NodeInt {
         preOrderTraversal(node.getRight());
     }
     
+    public static void inOrderTraversal(NodeInt node) {
+        if (node == null) {
+            return;
+        }
+        inOrderTraversal(node.getLeft());
+        System.out.print(node.getData() + ", ");
+        inOrderTraversal(node.getRight());
+    }
+    
     public int convertIntoSumTree(NodeInt node) {
         if (node == null){
             return 0;
@@ -36,6 +45,18 @@ public class NodeInt {
         node.setData(leftTreeSum + rightTreeSum);
         
         return node.getData() + oldValue;
+    }
+    
+    public static NodeInt createBinaryTreeInt() {
+        NodeInt root = new NodeInt(8);
+        root.setLeft(new NodeInt(7));
+        root.setRight(new NodeInt(-4));
+        root.getLeft().setLeft(new NodeInt(3));
+        root.getLeft().setRight(new NodeInt(-6));
+        root.getRight().setLeft(new NodeInt(7));
+        root.getRight().setRight(new NodeInt(9));
+        
+        return root;
     }
 }
 

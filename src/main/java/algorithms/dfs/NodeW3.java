@@ -29,5 +29,5 @@ public class NodeW3 {
         System.out.print(node.getData() + ", ");
         inOrderTraversal(node.getRight());
     }
-    
+
 }
