@@ -49,5 +49,41 @@ public class BinarySearchTree {
     }
     
     // TODO Delete Operation
+    public void delete(int value){
+        deleteFromBST(this.root, value);
+    }
+    
+    private NodeInt deleteFromBST(NodeInt node, int value) {
+        if( node == null) return null;
+        
+        if (value < node.getData()){
+            node.setLeft(deleteFromBST(node.getLeft(), value));
+        } else if (value > node.getData()) {
+            node.setRight(deleteFromBST(node.getRight(), value));
+        } else {
+
+            if (node.getLeft() == null){
+                return node.getRight();
+            } else if (node.getRight() == null) {
+                return node.getLeft();
+            }
+            
+            node.setData(minValue(node.getRight()));
+            node.setRight(deleteFromBST(node.getRight(), node.getData()));
+        }
+        return node;
+    }
+    
+    private int minValue (NodeInt right){
+        int min = right.getData();
+        
+        //get left most value in the right subtree
+        while (right.getLeft() != null){
+            min = right.getLeft().getData();
+            right = right.getLeft();
+        }
+        
+        return min;
+    }
     
 }

@@ -22,8 +22,11 @@ public class DemoInsert {
        System.out.printf("\nThe left child of the found node is %s", searchNode.getLeft().toString());
        System.out.printf("\nThe right child of the found node is %s", searchNode.getRight().toString());
        
-
-       
+       int valueToDelete = 13;
+       tree.delete(valueToDelete);
+       System.out.println(searchNode.toString());
+       System.out.printf("\nThe tree after deletion of %d:", valueToDelete);
+       NodeInt.inOrderTraversal(tree.getRoot());
     }
     
 
