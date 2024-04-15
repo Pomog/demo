@@ -2,8 +2,6 @@ package algorithms.w3schools;
 
 import algorithms.tree.NodeInt;
 
-import java.util.Optional;
-
 public class BinarySearchTree {
     NodeInt root;
     
@@ -36,7 +34,8 @@ public class BinarySearchTree {
      *
      * @param node    the root node of the BST to be searched
      * @param target  the value to search for
-     * @return        the node containing the target value if found; otherwise, null
+     *
+     * @return  the node containing the target value if found; otherwise, null
      */
     public NodeInt search(NodeInt node, int target) {
         if (node == null) {
@@ -53,11 +52,13 @@ public class BinarySearchTree {
     /**
      * Insert a node to the binary search tree (BST).
      *
-     * @param   node  the root node of the BST to be searched
+     * @param   node  the root node of the BST to be inserted
      * @param   data  the value to insert
-     * @return  the inserted node or node with equal data
+     *
+     * @return  the inserted node or node with equal data, if data exist
      */
     public NodeInt insert(NodeInt node, int data) {
+        System.out.println(node);
         if (node == null) {
             return new NodeInt(data);
         } else {
@@ -68,5 +69,19 @@ public class BinarySearchTree {
             }
         }
         return node;
+    }
+    
+    /**
+     * Find the MIN Node of the binary search tree (BST).
+     *
+     * @return  the most lest node of the binary search tree (BST).
+     */
+    
+    public NodeInt minValueNode() {
+        NodeInt current = this.root;
+        while (current != null && current.getLeft() != null) {
+            current = current.getLeft();
+        }
+        return current;
     }
 }
