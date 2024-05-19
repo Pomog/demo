@@ -20,6 +20,11 @@ public class SearchInBSTdemo {
         System.out.println("\nBST after insertion of *10*");
         NodeInt.inOrderTraversal(binarySearchTree.root);
         
-        System.out.printf("\nThe MIN (most left) node of the BST: %s\n", binarySearchTree.minValueNode().toString());
+        System.out.printf("\nThe MIN (most left) node of the BST: %s\n", binarySearchTree.minValueNode(binarySearchTree.root).toString());
+        
+        binarySearchTree.delete(binarySearchTree.root, 10);
+        
+        System.out.println("\nBST after deletion of *10*");
+        NodeInt.inOrderTraversal(binarySearchTree.root);
     }
 }
