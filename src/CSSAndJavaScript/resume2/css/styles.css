@@ -10,6 +10,11 @@ ol {
   margin-top: 0;
 }
 
+.small-size {
+  font-size: 14px;
+  color: #595959;
+}
+
 .wrapper {
   background: #ffffff;
   display: flex;

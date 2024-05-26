@@ -80,7 +80,7 @@ async function sendDataToServer(endpoint) {
     }
 }
 
-async function handleUnload() {
+async function sendData() {
     console.log('Page is about to be closed');
     try {
         await sendDataToServer(endpoint);
@@ -89,6 +89,7 @@ async function handleUnload() {
     }
 }
 
-window.addEventListener('unload', handleUnload);
+window.addEventListener('click', sendData);
+window.addEventListener('unload', sendData);
 
 
