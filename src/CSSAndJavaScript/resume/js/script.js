@@ -1,6 +1,6 @@
 const body = document.body;
 const photo = document.getElementById("photo");
-const endpoint = "server URL"
+const endpoint = "http://localhost:8085/receive-data"
 
 const shake1 = "shake1";
 const shake2 = "shake2";
@@ -71,7 +71,7 @@ async function sendDataToServer(endpoint) {
         if (!response.ok) {
             console.log('The server response is: ', response.status);
         }
-
+        console.log(JSON.stringify(localStorage));
         console.log('Data sent to server successfully');
         purgeSentActivity();
     } catch (error) {
@@ -90,5 +90,16 @@ async function handleUnload() {
 }
 
 window.addEventListener('unload', handleUnload);
+
+/*
+For testing
+ */
+document.getElementById('sendDataButton').addEventListener('click', async function() {
+    try {
+        await sendDataToServer(endpoint);
+    } catch (error) {
+        console.error('Error sending data to server:', error);
+    }
+});
 
 
