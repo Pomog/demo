@@ -13,6 +13,11 @@ public class DFS<T> {
     }
 
     public void traverse() {
+/*
+  here Class Stack can be used but it is outdated, inherits form Vector,
+and Deque interface can also be synchronized
+Collections.synchronizedDeque()
+ */
         Deque<Vertex<T>> stack = new LinkedList<>();
         stack.push(startVertex);
 
