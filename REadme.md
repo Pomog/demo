@@ -49,3 +49,6 @@
 20.	- What is a Comparator and Comparable in Java?
          Comparator - functional interface with method int compare(Object o1, Object o2) 	which imposes a total ordering on some collection of objects.
          Comparable - interface with method  int compateTo(Object o), imposes a total 	ordering on the objects of each class that implements it.
+
+
+dfs learning
