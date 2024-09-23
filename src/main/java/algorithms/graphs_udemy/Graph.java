@@ -1,6 +1,9 @@
 package algorithms.graphs_udemy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Stack;
 
 public class Graph {
     // Adjacency list
@@ -30,6 +33,30 @@ public class Graph {
             }
         }
     }
+
+    void dfsTraversalIter (int vertex){
+        Arrays.fill(visited, false);
+
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(vertex);
+
+        while (!stack.isEmpty()) {
+            vertex = stack.pop();
+
+            if (!visited[vertex]) {
+                visited[vertex] = true;
+                System.out.println(vertex);
+            }
+
+            for (int v : graph[vertex]) {
+                if (!visited[v]) {
+                    stack.push(v);
+                }
+            }
+        }
+
+    }
     
     public static void main(String[] args) {
         Graph g = new Graph(13);
@@ -49,8 +76,10 @@ public class Graph {
         g.addEdge(11, 12);
         
         System.out.println("DFS traversal, recursive");
-        
         g.dfsTraversal(1);
+
+        System.out.println("DFS traversal, iterative");
+        g.dfsTraversalIter(1);
         
     }
 }
