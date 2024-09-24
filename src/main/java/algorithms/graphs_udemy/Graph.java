@@ -1,9 +1,6 @@
 package algorithms.graphs_udemy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Stack;
+import java.util.*;
 
 public class Graph {
     // Adjacency list
@@ -57,10 +54,31 @@ public class Graph {
         }
 
     }
+
+    void bfsTraversal (int vertex){
+        LinkedList<Integer> queue = new LinkedList<>();
+        queue.add(vertex);
+        visited[vertex] = true;
+
+        while (!queue.isEmpty()) {
+            int currentVertex = queue.poll();
+
+            Iterator<Integer> iterator = graph[currentVertex].listIterator();
+            while (iterator.hasNext()) {
+                int nextVertex = iterator.next();
+                if (!visited[nextVertex]) {
+                    visited[nextVertex] = true;
+                    queue.add(nextVertex);
+                }
+            }
+            System.out.println("Current vertex: " + currentVertex);
+        }
+
+    }
     
     public static void main(String[] args) {
         Graph g = new Graph(13);
-        
+
         g.addEdge(1, 2);
         g.addEdge(1, 3);
         g.addEdge(1, 5);
@@ -75,11 +93,14 @@ public class Graph {
         g.addEdge(8, 11);
         g.addEdge(11, 12);
         
-        System.out.println("DFS traversal, recursive");
-        g.dfsTraversal(1);
+//        System.out.println("DFS traversal, recursive");
+//        g.dfsTraversal(1);
+//
+//        System.out.println("DFS traversal, iterative");
+//        g.dfsTraversalIter(1);
 
-        System.out.println("DFS traversal, iterative");
-        g.dfsTraversalIter(1);
+        System.out.println("BFS traversal, iterative");
+        g.bfsTraversal(1);
         
     }
 }
