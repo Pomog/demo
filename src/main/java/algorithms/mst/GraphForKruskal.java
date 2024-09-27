@@ -9,9 +9,11 @@ public class GraphForKruskal {
     GraphForKruskal(int V, int E) {
         this.V = V;
         this.E = E;
-        edges = new EdgeKruskal[E];
 
-        Arrays.fill(edges, new EdgeKruskal());
+        edges = new EdgeKruskal[E];
+        for (int i = 0; i < E; i++) {
+            edges[i] = new EdgeKruskal();
+        }
     }
 
     void kruskalAlgorithm() {
@@ -22,18 +24,20 @@ public class GraphForKruskal {
         Arrays.sort(edges);
 
         Subset[] subsets = new Subset[V];
-        Arrays.fill(subsets, new Subset());
+        for (int i = 0; i < V; i++) {
+            subsets[i] = new Subset();
+        }
 
         for (int i = 0; i < V; i++) {
-            subsets[i].parent = v;
+            subsets[i].parent = i;
             subsets[i].rank = 0;
         }
 
 //  pick the smallest Edge
         int i = 0;
         while (e < V-1) {
-            EdgeKruskal edge = new EdgeKruskal();
-            edge = edeges[i++];
+            EdgeKruskal edge;
+            edge = edges[i++];
 
 //  get src and dest
             int x = find(subsets, edge.src);
@@ -47,7 +51,7 @@ public class GraphForKruskal {
         }
 
         int minCost = 0;
-        for (int j = 0; j < V; j++) {
+        for (int j = 0; j < e; j++) {
             System.out.println(edgesMST[j].src + " " + edgesMST[j].dest + " : " + edgesMST[j].weight);
             minCost += edgesMST[j].weight;
         }
@@ -56,7 +60,7 @@ public class GraphForKruskal {
 
     private void union(Subset[] subsets, int x, int y) {
         if (subsets[x].rank < subsets[y].rank) {
-            subsets[x].parent = y;j
+            subsets[x].parent = y;
         } else if (subsets[y].rank < subsets[x].rank) {
             subsets[y].parent = x;
         } else {
@@ -91,5 +95,46 @@ public class GraphForKruskal {
         graph.edges[2].dest = 7;
         graph.edges[2].weight = 9;
 
+        graph.edges[3].src = 4;
+        graph.edges[3].dest = 3;
+        graph.edges[3].weight = 8;
+
+        graph.edges[4].src = 0;
+        graph.edges[4].dest = 1;
+        graph.edges[4].weight = 8;
+
+        graph.edges[5].src = 3;
+        graph.edges[5].dest = 7;
+        graph.edges[5].weight = 7;
+
+        graph.edges[6].src = 0;
+        graph.edges[6].dest = 5;
+        graph.edges[6].weight = 4;
+
+        graph.edges[7].src = 4;
+        graph.edges[7].dest = 0;
+        graph.edges[7].weight = 2;
+
+        graph.edges[8].src = 2;
+        graph.edges[8].dest = 3;
+        graph.edges[8].weight = 4;
+
+        graph.edges[9].src = 0;
+        graph.edges[9].dest = 3;
+        graph.edges[9].weight = 6;
+
+        graph.edges[10].src = 2;
+        graph.edges[10].dest = 1;
+        graph.edges[10].weight = 10;
+
+        graph.edges[11].src = 3;
+        graph.edges[11].dest = 5;
+        graph.edges[11].weight = 8;
+
+        graph.edges[12].src = 6;
+        graph.edges[12].dest = 1;
+        graph.edges[12].weight = 7;
+
+        graph.kruskalAlgorithm();
     }
 }
