@@ -1,7 +1,9 @@
 package algorithms.named;
 
 public class Edge {
-    int s,d,w; // s-source; d-destination; w-weight;
+    public int s;
+    public int d;
+    public int w; // s-source; d-destination; w-weight;
     
     public Edge() {
         this.s = 0;
