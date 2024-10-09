@@ -1,12 +1,12 @@
 package algorithms.named.dijkstra;
 
-import algorithms.greedy.AdjMatrixFactory;
+import algorithms.greedy.GraphFactory;
 
 import java.util.Arrays;
 
 public class Dijkstra_3 {
     public static void main(String[] args) {
-        int[][] adjacencyMatrix  = new AdjMatrixFactory().createAdjacencyMatrix();
+        int[][] adjacencyMatrix  = new GraphFactory().createAdjacencyMatrix();
         
         diikstra(adjacencyMatrix);
     }

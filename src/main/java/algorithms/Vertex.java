@@ -18,6 +18,8 @@ public class Vertex<T> {
     private List<Vertex<T>> parents = new LinkedList<>();
     // Represents the child vertices in the graph hierarchy.
     private List<Vertex<T>> children = new LinkedList<>();
+    // Represent the distance from the source
+    private Integer distance;
 
     public Vertex(T data) {
         this.data = data;

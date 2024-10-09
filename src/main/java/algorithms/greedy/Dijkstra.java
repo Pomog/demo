@@ -6,7 +6,7 @@ package algorithms.greedy;
 public class Dijkstra {
     public static void main(String[] args) {
         // Example adjacency matrix representing the graph
-        int[][] adjacencyMatrix  = new AdjMatrixFactory().createAdjacencyMatrix();
+        int[][] adjacencyMatrix  = new GraphFactory().createAdjacencyMatrix();
         
         dijkstra(adjacencyMatrix);
     }

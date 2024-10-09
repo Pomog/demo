@@ -2,7 +2,7 @@ package algorithms.greedy;
 
 public class Dijkstra_Udemy {
     public static void main(String[] args) {
-        int[][] adjacencyMatrix = new AdjMatrixFactory().createAdjacencyMatrix();
+        int[][] adjacencyMatrix = new GraphFactory().createAdjacencyMatrix();
         
         dijkstra(adjacencyMatrix);
     }
