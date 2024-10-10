@@ -3,6 +3,7 @@ package algorithms;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Graph<T> {
     private final List<Edge<T>> edges = new LinkedList<>();
@@ -20,6 +21,12 @@ public class Graph<T> {
                 .filter(v -> !v.isVisited())
                 .min(Comparator.comparingInt(Vertex::getDistance))
                 .orElse(null);
+    }
+    
+    public List<Edge<T>> getEdgesOfVertex (Vertex<T> v){
+        return edges.stream()
+                .filter(e -> e.getFrom() == v)
+                .collect(Collectors.toList());
     }
     
     @Override

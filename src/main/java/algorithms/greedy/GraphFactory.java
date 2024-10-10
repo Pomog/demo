@@ -22,7 +22,7 @@ public class GraphFactory {
         };
     }
     
-    public Graph<String> createDirectedGraph() {
+    public Graph<String> createUndirectedGraph() {
         Vertex<String> A = new Vertex<>("A");
         Vertex<String> B = new Vertex<>("B");
         Vertex<String> C = new Vertex<>("C");
