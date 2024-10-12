@@ -1,5 +1,6 @@
 package algorithms.named.dijkstra;
 
+import algorithms.Edge;
 import algorithms.Graph;
 import algorithms.Vertex;
 import algorithms.greedy.GraphFactory;
@@ -17,6 +18,15 @@ public class Dijkstra_4 {
         
         // 3. Set the distance in the source vertex to 0
         graph.vertices.get(source).setDistance(0);
+        
+        while (graph.allVertexIsVisited()){
+            Vertex<String> minVertex = graph.getUnvisitedVertexWithSmallestDistance();
+            minVertex.setVisited(true);
+            int distance = minVertex.getDistance();
+            
+            
+
+        }
         
 
         

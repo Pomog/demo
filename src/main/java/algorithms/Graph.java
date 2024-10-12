@@ -29,6 +29,11 @@ public class Graph<T> {
                 .collect(Collectors.toList());
     }
     
+    public Boolean allVertexIsVisited(){
+        return vertices.stream()
+                .allMatch(Vertex::isVisited);
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
