@@ -1,12 +1,16 @@
 package algorithms;
 
+import lombok.Getter;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Graph<T> {
+    @Getter
     private final List<Edge<T>> edges = new LinkedList<>();
+    
     public List<Vertex<T>> vertices = new LinkedList<>();
     
     // Add vertices and edges
@@ -21,19 +25,6 @@ public class Graph<T> {
                 .filter(v -> !v.isVisited())
                 .min(Comparator.comparingInt(Vertex::getDistance))
                 .orElse(null);
-    }
-    
-    public Vertex<T> getUnvisitedVertex() {
-        return vertices.stream()
-                .filter(v -> !v.isVisited())
-                .findAny()
-                .orElse(null);
-    }
-    
-    public List<Edge<T>> getEdgesOfVertex (Vertex<T> v){
-        return edges.stream()
-                .filter(e -> e.getFrom() == v)
-                .collect(Collectors.toList());
     }
     
     public List<Edge<T>> getNotVisitedEdgesOfVertex (Vertex<T> v){

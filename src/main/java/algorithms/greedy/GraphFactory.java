@@ -3,6 +3,8 @@ package algorithms.greedy;
 import algorithms.Graph;
 import algorithms.Vertex;
 
+import java.util.List;
+
 /**
  * Factory class to create an adjacency matrix for graph algorithms.
  */
@@ -70,6 +72,63 @@ public class GraphFactory {
         graph.addEdge(G, D, 6);
         graph.addEdge(G, E, 10);
         graph.addEdge(G, F, 8);
+        
+        return graph;
+    }
+    
+    public Graph<String> DirectedGraphFactory(){
+        Graph<String> graph = new Graph<>();
+        
+        // Create vertices
+        Vertex<String> v0 = new Vertex<>("0");
+        Vertex<String> v1 = new Vertex<>("1");
+        Vertex<String> v2 = new Vertex<>("2");
+        Vertex<String> v3 = new Vertex<>("3");
+        Vertex<String> v4 = new Vertex<>("4");
+        Vertex<String> v5 = new Vertex<>("5");
+        
+        // Add vertices to the graph
+        graph.vertices.addAll(List.of(v0, v1, v2, v3, v4, v5));
+        
+        // Create edges with weights (source, destination, weight)
+        graph.addEdge(v0, v1, 8);   // AB
+        graph.addEdge(v0, v5, 5);   // AF
+        graph.addEdge(v0, v3, 3);   // AD
+        graph.addEdge(v1, v2, 6);   // BC
+        graph.addEdge(v2, v4, 4);   // CE
+        graph.addEdge(v3, v4, -1);  // DE
+        graph.addEdge(v5, v1, -4);  // FB
+        graph.addEdge(v5, v2, -1);  // FC
+        graph.addEdge(v5, v4, -3);  // FE
+        
+        return graph;
+    }
+    
+    public Graph<String> DirectedGraphFactoryNegCycle(){
+        Graph<String> graph = new Graph<>();
+        
+        // Create vertices
+        Vertex<String> v0 = new Vertex<>("0");
+        Vertex<String> v1 = new Vertex<>("1");
+        Vertex<String> v2 = new Vertex<>("2");
+        Vertex<String> v3 = new Vertex<>("3");
+        Vertex<String> v4 = new Vertex<>("4");
+        Vertex<String> v5 = new Vertex<>("5");
+        
+        // Add vertices to the graph
+        graph.vertices.addAll(List.of(v0, v1, v2, v3, v4, v5));
+        
+        // Create edges with weights (source, destination, weight)
+        graph.addEdge(v0, v1, 8);   // AB
+        graph.addEdge(v0, v5, 5);   // AF
+        graph.addEdge(v0, v3, 3);   // AD
+        graph.addEdge(v1, v2, 6);   // BC
+        graph.addEdge(v1, v0, -10);   // BA
+        graph.addEdge(v2, v4, 4);   // CE
+        graph.addEdge(v3, v4, -1);  // DE
+        graph.addEdge(v5, v1, -4);  // FB
+        graph.addEdge(v5, v2, -1);  // FC
+        graph.addEdge(v5, v4, -3);  // FE
         
         return graph;
     }
