@@ -5,6 +5,8 @@ import algorithms.Graph;
 import algorithms.Vertex;
 import algorithms.greedy.GraphFactory;
 
+import java.util.List;
+
 public class Dijkstra_4 {
     public static void main(String[] args) {
         Graph<String> graph = new GraphFactory().createUndirectedGraph();
@@ -19,25 +21,21 @@ public class Dijkstra_4 {
         // 3. Set the distance in the source vertex to 0
         graph.vertices.get(source).setDistance(0);
         
-        while (graph.allVertexIsVisited()){
+        // 4. Process vertices until all are visited
+        while (graph.notVisitedVerticesPresent()){
             Vertex<String> minVertex = graph.getUnvisitedVertexWithSmallestDistance();
+            
             minVertex.setVisited(true);
             int distance = minVertex.getDistance();
             
+            List<Edge<String>> edgesToNotVisitedVertex = graph.getNotVisitedEdgesOfVertex(minVertex);
             
-
+            // 4. Update distances using stream
+            edgesToNotVisitedVertex.stream()
+                    .filter(edge -> edge.getTo().getDistance() > edge.getWeight() + distance)
+                    .forEach(edge -> edge.getTo().setDistance(edge.getWeight() + distance));
         }
         
-
-        
-        
-        
         System.out.println(graph);
-        
-        Vertex<String> minDistanceVertex = graph.getUnvisitedVertexWithSmallestDistance();
-        
-        System.out.println(minDistanceVertex);
-        
-        System.out.println(graph.getEdgesOfVertex(minDistanceVertex));
     }
 }

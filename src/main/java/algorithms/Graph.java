@@ -23,14 +23,28 @@ public class Graph<T> {
                 .orElse(null);
     }
     
+    public Vertex<T> getUnvisitedVertex() {
+        return vertices.stream()
+                .filter(v -> !v.isVisited())
+                .findAny()
+                .orElse(null);
+    }
+    
     public List<Edge<T>> getEdgesOfVertex (Vertex<T> v){
         return edges.stream()
                 .filter(e -> e.getFrom() == v)
                 .collect(Collectors.toList());
     }
     
-    public Boolean allVertexIsVisited(){
-        return vertices.stream()
+    public List<Edge<T>> getNotVisitedEdgesOfVertex (Vertex<T> v){
+        return edges.stream()
+                .filter(e -> e.getFrom() == v)
+                .filter(e -> !e.getTo().isVisited())
+                .collect(Collectors.toList());
+    }
+    
+    public Boolean notVisitedVerticesPresent(){
+        return !vertices.stream()
                 .allMatch(Vertex::isVisited);
     }
     

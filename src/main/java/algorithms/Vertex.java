@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Data
-@ToString(exclude = {"neighbors", "parents", "children", "visited"})
+@ToString(exclude = {"neighbors", "parents", "children"})
 public class Vertex<T> {
     private final T data;
     // Indicates whether the vertex has been visited during graph traversal.

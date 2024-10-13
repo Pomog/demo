@@ -27,7 +27,7 @@ public class GraphTest {
         vertexB.setVisited(true);
         
         // Test if all vertices are visited
-        assertTrue(graph.allVertexIsVisited(), "Expected all vertices to be visited");
+        assertFalse(graph.notVisitedVerticesPresent(), "Expected all vertices to be visited");
     }
     
     @Test
@@ -37,6 +37,6 @@ public class GraphTest {
         vertexB.setVisited(false);
         
         // Test if all vertices are visited
-        assertFalse(graph.allVertexIsVisited(), "Expected not all vertices to be visited");
+        assertTrue(graph.notVisitedVerticesPresent(), "Expected not all vertices to be visited");
     }
 }
