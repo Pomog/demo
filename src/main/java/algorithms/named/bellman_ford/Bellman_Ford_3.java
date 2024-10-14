@@ -21,8 +21,20 @@ public class Bellman_Ford_3 {
         
         List<Edge<String>> edges = graph.getEdges();
         
+        
+        boolean updated;
         for (int cycle = 0; cycle<graph.vertices.size(); cycle++){
-            traverse(edges);
+            updated = false;
+            for (Edge<String> edge : edges){
+                int updatedDistance = edge.getWeight() + edge.getFrom().getDistance();
+                if (edge.getTo().getDistance() > updatedDistance){
+                    edge.getTo().setDistance(updatedDistance);
+                    updated = true;
+                }
+            }
+            if (!updated) {
+                break;
+            }
         }
         
         checkNegativeCycles(edges);
@@ -37,14 +49,8 @@ public class Bellman_Ford_3 {
                 throw new Exception("The Graph contains negative cycles");
             }
         }
+        
+        System.out.println("NO negative cycles");
     }
-    
-    private static void traverse(List<Edge<String>> edges) {
-        for (Edge<String> edge : edges){
-            int updatedDistance = edge.getWeight() + edge.getFrom().getDistance();
-            if (edge.getTo().getDistance() > updatedDistance){
-                edge.getTo().setDistance(updatedDistance);
-            }
-        }
-    }
+
 }
