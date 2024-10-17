@@ -26,8 +26,39 @@ public class Ford_Fulkerson {
         Map<Integer, Integer> parentMapping = new HashMap<>();
         List<List<Integer>> augmentingPaths = new ArrayList<List<Integer>>();
         
-
+        while (getAugmentingPath(residualGraph, parentMapping, source, sink)) {
+            int flow = Integer.MAX_VALUE;
         
+        }
+        
+        
+    }
+    
+    private static boolean getAugmentingPath(int[][] residualGraph, Map<Integer, Integer> parentMapping, int source, int sink) {
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+        
+        queue.add(source);
+        visited.add(source);
+        
+        boolean gotThePath = false;
+        
+        while (!queue.isEmpty()){
+            int u = queue.poll();
+            for(int v=0; v<residualGraph.length; v++){
+                if(!visited.contains(v) && residualGraph[u][v] > 0){
+                    parentMapping.put(v, u);
+                    visited.add(v);
+                    queue.add(v);
+                    
+                    if (v==sink){
+                        gotThePath = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return gotThePath;
     }
     
     private static void print(int[][] graph) {
