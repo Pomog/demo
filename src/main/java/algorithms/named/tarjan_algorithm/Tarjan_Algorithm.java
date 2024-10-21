@@ -1,30 +1,27 @@
 package algorithms.named.tarjan_algorithm;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class Tarjan_Algorithm {
     private static final int UNVISITED = -1;
-    private int n;
+    private final int n;
     private int num;
     private boolean[] visited;
     private int[] dfsNum, dfsLow;
     private Stack<Integer> stack;
-    private LinkedList<Integer>[] graph;
+    private final List<LinkedList<Integer>> graph;
     
-    public Tarjan_Algorithm(LinkedList<Integer>[] graph) {
+    public Tarjan_Algorithm(List<LinkedList<Integer>> graph) {
         if (graph == null) {
             throw new IllegalArgumentException("Graph can not be Null");
         }
         this.graph = graph;
-        this.n = graph.length;
+        this.n = graph.size();
     }
     
     public static void main(String[] args) {
         int n = 7;
-        LinkedList<Integer>[] graph = createGraph(n);
+        List<LinkedList<Integer>> graph = createGraph(n);
         
         addEdge(graph, 0, 1);
         addEdge(graph, 1, 2);
@@ -43,15 +40,15 @@ public class Tarjan_Algorithm {
       
     }
     
-    private static void addEdge(LinkedList<Integer>[] graph, int from, int to) {
-        graph[from].add(to);
+    private static void addEdge(List<LinkedList<Integer>> graph, int from, int to) {
+        graph.get(from).add(to);
     }
     
-    private static LinkedList<Integer>[] createGraph(int n) {
-        LinkedList<Integer>[] graph = new LinkedList[n];
+    private static List<LinkedList<Integer>> createGraph(int n) {
+        List<LinkedList<Integer>> graph = new ArrayList<>();
         
         for (int i = 0; i < n; i++) {
-            graph[i] = new LinkedList<Integer>();
+            graph.add(new LinkedList<Integer>());
         }
         return graph;
     }
@@ -76,14 +73,12 @@ public class Tarjan_Algorithm {
         stack.push(curr);
         visited[curr] = true;
         
-        Iterator<Integer> i = graph[curr].iterator();
-        while (i.hasNext()){
-            int to = i.next();
-            if (dfsNum[to] == UNVISITED){
+        for (int to : graph.get(curr)) {
+            if (dfsNum[to] == UNVISITED) {
                 dfs(to);
             }
-            if(visited[to]){
-                dfsLow[curr]=Math.min(dfsLow[curr],dfsLow[to]);
+            if (visited[to]) {
+                dfsLow[curr] = Math.min(dfsLow[curr], dfsLow[to]);
             }
         }
         
