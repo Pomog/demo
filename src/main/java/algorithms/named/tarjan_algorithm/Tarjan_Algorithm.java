@@ -12,9 +12,6 @@ public class Tarjan_Algorithm {
     private final List<LinkedList<Integer>> graph;
     
     public Tarjan_Algorithm(List<LinkedList<Integer>> graph) {
-        if (graph == null) {
-            throw new IllegalArgumentException("Graph can not be Null");
-        }
         this.graph = graph;
         this.n = graph.size();
     }
