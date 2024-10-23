@@ -1,9 +1,6 @@
 package algorithms.named.kosaraju;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Kosaraju_Algorithm {
     private final int n;
@@ -29,7 +26,48 @@ public class Kosaraju_Algorithm {
     }
     
     public static void addEdge(List<LinkedList<Integer>> graph, int form, int to){
+        
         graph.get(form).add(to);
+    }
+    
+    public void solve(){
+        stack = new Stack<>();
+        visited= new boolean[n];
+        Arrays.fill(visited, false);
+        
+        // step 1. DFS and fill stack
+        for (int i=0; i<n; i++){
+            if(!visited[i]){
+                dfs(i, visited);
+            }
+        }
+        
+        // reverse the Graph
+        List<LinkedList<Integer>> reverseGraph = reverse();
+    }
+    
+    private List<LinkedList<Integer>> reverse() {
+        List<LinkedList<Integer>> reverseGraph = createGraph(n);
+        
+        for (int u=0; u<n; u++){
+            for (Integer v : graph.get(u)) {
+                addEdge(reverseGraph, v, u);
+            }
+        }
+        
+        return reverseGraph;
+    }
+    
+    private void dfs(int currentVertex, boolean[] visited) {
+        visited[currentVertex] = true;
+        
+        for (int to : graph.get(currentVertex)) {
+            if (!visited[to]) {
+                dfs(to, visited);
+            }
+        }
+        
+        stack.push(currentVertex);
     }
     
     public static void main(String[] args) {
