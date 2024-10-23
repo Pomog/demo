@@ -33,6 +33,7 @@ public class Kosaraju_Algorithm {
     public void solve(){
         stack = new Stack<>();
         visited= new boolean[n];
+        
         Arrays.fill(visited, false);
         
         // step 1. DFS and fill stack
@@ -44,6 +45,30 @@ public class Kosaraju_Algorithm {
         
         // reverse the Graph
         List<LinkedList<Integer>> reverseGraph = reverse();
+        
+        Arrays.fill(visited, false);
+        
+        // step 3. second DFS in the order defined in the stack
+        while(!stack.isEmpty()){
+            int currVertex = stack.pop();
+            // look for connected vertices
+            if (!visited[currVertex]) {
+                dfs2(reverseGraph, currVertex, visited);
+                System.out.println();
+            }
+        }
+    }
+    
+    private void dfs2(List<LinkedList<Integer>> reverseGraph, int currVertex, boolean[] visited) {
+        visited[currVertex] = true;
+        System.out.print(currVertex +" ");
+        
+        // look for adjacent vertices
+        for (int next : reverseGraph.get(currVertex)) {
+            if (!visited[next]) {
+                dfs2(reverseGraph, next, visited);
+            }
+        }
     }
     
     private List<LinkedList<Integer>> reverse() {
@@ -66,7 +91,6 @@ public class Kosaraju_Algorithm {
                 dfs(to, visited);
             }
         }
-        
         stack.push(currentVertex);
     }
     
@@ -84,6 +108,9 @@ public class Kosaraju_Algorithm {
         addEdge(graph, 6,4);
         addEdge(graph, 5,6);
         addEdge(graph, 6,7);
+        
+        Kosaraju_Algorithm sccSolver = new Kosaraju_Algorithm(graph);
+        sccSolver.solve();
         
     }
 }
