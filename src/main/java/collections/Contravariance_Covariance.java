@@ -27,16 +27,18 @@ public class Contravariance_Covariance {
         
         logger.info("Trying to replace IF with a Map");
         
-        dogs.forEach(elem -> {
-            Class<?> clazz = elem.getClass();
-            BiConsumer<Object, String> consumer = types.get(clazz);
-            String className = clazz.getSimpleName();
-            if (consumer != null) {
-                consumer.accept(elem, className);
-            } else {
-                logger.info("No consumer found for " + className);
-            }
-        });
+        contravariance_reading(dogs, types, logger);
+        
+        List<CollectionsTrainings.Animal> animals = new ArrayList<>();
+        animals.add(new CollectionsTrainings.Animal());
+        animals.add(new CollectionsTrainings.BullDog());
+        
+        contravariance_reading(animals, types, logger);
+        
+        List<Object> objects = new ArrayList<>();
+        objects.add(new Object());
+        
+        contravariance_reading(objects, types, logger);
         
         List<CollectionsTrainings.BullDog> bullDogs = new ArrayList<>();
         CollectionsTrainings.BullDog testBullDog = new CollectionsTrainings.BullDog() {
@@ -66,5 +68,22 @@ public class Contravariance_Covariance {
     
     public void covariance_reading(List<? extends CollectionsTrainings.Animal> animals) {
         animals.forEach(CollectionsTrainings.Animal::speak);
+    }
+    
+    public void contravariance_reading(
+            List<? super CollectionsTrainings.Dog> animals, Map<Class<?>,
+            BiConsumer<Object, String>> types,
+            Logger logger)
+    {
+        animals.forEach(elem -> {
+            Class<?> clazz = elem.getClass();
+            BiConsumer<Object, String> consumer = types.get(clazz);
+            String className = clazz.getSimpleName();
+            if (consumer != null) {
+                consumer.accept(elem, className);
+            } else {
+                logger.info("No consumer found for " + className);
+            }
+        });
     }
 }

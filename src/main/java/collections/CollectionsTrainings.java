@@ -16,20 +16,20 @@ public class CollectionsTrainings {
         cc.execute();
     }
   
-    static class Animal {
+    public static class Animal {
         public void speak() {
             System.out.println("Animal speaks");
         }
     }
     
-    static class Dog extends Animal {
+    public static class Dog extends Animal {
         @Override
         public void speak() {
             System.out.println("Dog barks");
         }
     }
     
-    static class Cat extends Animal {
+    public static class Cat extends Animal {
         @Override
         public void speak() {
             System.out.println("Cat meows");
@@ -43,7 +43,7 @@ public class CollectionsTrainings {
         }
     }
     
-    static class PugDog extends Dog {
+    public static class PugDog extends Dog {
         @Override
         public void speak() {
             System.out.println("Dog pug dog");
