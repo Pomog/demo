@@ -15,6 +15,15 @@ public class Contravariance_Covariance {
     }
     
     public void execute() {
+        List<CollectionsTrainings.Animal> animalsInv = new ArrayList<>();
+        animalsInv.add(new CollectionsTrainings.Animal());
+        animalsInv.add(new CollectionsTrainings.Dog());
+        animalsInv.add(new CollectionsTrainings.Cat());
+        
+        animalsInv.forEach(elem -> System.out.println(elem.getClass().getSimpleName()));
+        CollectionsTrainings.Dog dog = (CollectionsTrainings.Dog) animalsInv.get(1);
+//        CollectionsTrainings.Dog dog2 = (CollectionsTrainings.Dog) animalsInv.get(2); //cannot be cast
+        
         List<? super CollectionsTrainings.Dog> dogs = new ArrayList<>();
         dogs.add(new CollectionsTrainings.BullDog());
         dogs.add(new CollectionsTrainings.PugDog());
