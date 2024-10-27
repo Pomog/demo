@@ -56,5 +56,5 @@ dfs learning
 20241011 - beer
 20241011
 
-
+sudo openvpn --config academy.ovpn
 xfreerdp /v:10.129.201.57 /u:htb-student /p:Academy_WinFun!
