@@ -55,3 +55,6 @@ dfs learning
 20240922 css - w3school
 20241011 - beer
 20241011
+
+
+xfreerdp /v:10.129.201.57 /u:htb-student /p:Academy_WinFun!
