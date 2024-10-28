@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class CollectionsTrainings {
@@ -8,7 +9,10 @@ public class CollectionsTrainings {
         System.out.println(intArray.getClass().getSimpleName());
         
         new CollectionsTrainings().run();
-    }
+        
+        int[][] twoD = new int[2][2];
+        Arrays.stream(twoD).forEach(arr  -> Arrays.stream(arr).forEach(System.out::println));
+     }
     
     public void run() {
         Logger logger = Logger.getLogger(Contravariance_Covariance.class.getName());

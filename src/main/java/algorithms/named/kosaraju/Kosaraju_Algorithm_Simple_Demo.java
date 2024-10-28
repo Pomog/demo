@@ -2,13 +2,13 @@ package algorithms.named.kosaraju;
 
 import java.util.*;
 
-public class Kosaraju_Algorithm {
+public class Kosaraju_Algorithm_Simple_Demo {
     private final int n;
     private final List<LinkedList<Integer>> graph;
     private boolean[] visited;
     private Stack<Integer> stack;
     
-    public Kosaraju_Algorithm(List<LinkedList<Integer>> graph) {
+    public Kosaraju_Algorithm_Simple_Demo(List<LinkedList<Integer>> graph) {
         if (graph == null) {
             throw new IllegalArgumentException("Graph can not be Null");
         }
@@ -109,7 +109,7 @@ public class Kosaraju_Algorithm {
         addEdge(graph, 5,6);
         addEdge(graph, 6,7);
         
-        Kosaraju_Algorithm sccSolver = new Kosaraju_Algorithm(graph);
+        Kosaraju_Algorithm_Simple_Demo sccSolver = new Kosaraju_Algorithm_Simple_Demo(graph);
         sccSolver.solve();
         
     }
