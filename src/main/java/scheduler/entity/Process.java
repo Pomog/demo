@@ -20,6 +20,7 @@ public class Process {
     private int ID;
     
     @Column(name = "process-name")
+    @NonNull
     private String processName;
     
     @OneToMany(

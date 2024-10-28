@@ -26,6 +26,5 @@ public class Skill {
     private String stepName;
     
     @Column(name = "level")
-    @NonNull
     private int level;
 }

@@ -22,6 +22,7 @@ public class Step {
     private int ID;
     
     @Column(name = "step-name")
+    @NonNull
     private String stepName;
     
     @OneToMany(
