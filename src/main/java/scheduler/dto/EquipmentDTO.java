@@ -9,6 +9,7 @@ import scheduler.entity.Step;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @RequiredArgsConstructor
@@ -18,11 +19,13 @@ public class EquipmentDTO {
     private String name;
     @NonNull
     private String code;
-    private List<Step> steps = new ArrayList<>();
+    private List<StepDTO> steps = new ArrayList<>();
     
     public EquipmentDTO(Equipment equipmentEntity) {
         this.name = equipmentEntity.getName();
         this.code = equipmentEntity.getCode();
-        this.steps.addAll(equipmentEntity.getSteps());
+        this.steps.addAll(equipmentEntity.getSteps().stream()
+                .map(StepDTO::new)
+                .collect(Collectors.toList()));
     }
 }
