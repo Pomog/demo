@@ -19,10 +19,31 @@ public class CollectionsTrainings {
         Number[] numbers = new Number[1];
         numbers[0] = 1.1D;
         
-        Number a;
-        a=null;
+        Number a = new Number() {
+            @Override
+            public int intValue() {
+                return 0;
+            }
+            
+            @Override
+            public long longValue() {
+                return 0;
+            }
+            
+            @Override
+            public float floatValue() {
+                return 0;
+            }
+            
+            @Override
+            public double doubleValue() {
+                return 0;
+            }
+        };
+
         try {
-            System.out.println(a.getClass().getSimpleName());
+            System.out.println("Try to create Number object class: " + a.getClass().getSimpleName());
+            System.out.println(a == null);
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
