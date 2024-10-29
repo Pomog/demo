@@ -20,10 +20,26 @@ public class CollectionsTrainings {
         numbers[0] = 1.1D;
         
         Number a;
-//        System.out.println(a.getClass().getSimpleName());
+        a=null;
+        try {
+            System.out.println(a.getClass().getSimpleName());
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
         a = numbers[0];
         System.out.println("Number a = " + a);
         System.out.println(a.getClass().getSimpleName());
+        
+        String[] strings = {"a", "b"};
+        Object[] objects = strings;
+        System.out.println(Arrays.toString(objects));
+        try {
+            objects[0] = 1;
+            System.out.println(objects[0]);
+        } catch (ArrayStoreException e) {
+            System.out.println(e.getClass());
+            System.out.println(e.getMessage());
+        }
      }
     
     public void run() {
