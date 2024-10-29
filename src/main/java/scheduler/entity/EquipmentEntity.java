@@ -9,23 +9,26 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "process")
+@Table(name = "equipment")
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Process {
+public class EquipmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int ID;
     
-    @Column(name = "process-name")
+    @Column(name = "name")
+    private String name;
+    
     @NonNull
-    private String processName;
+    @Column(name = "name")
+    private String code;
     
     @OneToMany(
             mappedBy = "step",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<Step> steps;
+    private List<StepEntity> stepEntities;
 }

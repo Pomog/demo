@@ -21,7 +21,7 @@ public class Dijkstra_4 {
         // 3. Set the distance in the source vertex to 0
         graph.vertices.get(source).setDistance(0);
         
-        // 4. Process vertices until all are visited
+        // 4. ProcessEntity vertices until all are visited
         while (graph.notVisitedVerticesPresent()){
             Vertex<String> minVertex = graph.getUnvisitedVertexWithSmallestDistance();
             

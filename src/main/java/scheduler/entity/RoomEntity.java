@@ -6,29 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "equipment")
+@Table(name = "room", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"code"})
+})
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Equipment {
+public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int ID;
     
-    @Column(name = "name")
-    private String name;
-    
+    @Column(name = "code")
     @NonNull
-    @Column(name = "name")
     private String code;
-    
-    @OneToMany(
-            mappedBy = "step",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    private List<Step> steps;
 }

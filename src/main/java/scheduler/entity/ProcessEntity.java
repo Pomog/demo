@@ -6,25 +6,26 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table(name = "skill")
+@Table(name = "process")
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Skill {
+public class ProcessEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int ID;
     
-    @Column(name = "process_name")
+    @Column(name = "process-name")
     @NonNull
     private String processName;
     
-    @Column(name = "step_name")
-    @NonNull
-    private String stepName;
-    
-    @Column(name = "level")
-    private int level;
+    @OneToMany(
+            mappedBy = "step",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private List<StepEntity> stepEntities;
 }

@@ -7,19 +7,24 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@Table(name = "room", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"code"})
-})
+@Table(name = "skill")
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Room {
+public class SkillEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int ID;
     
-    @Column(name = "code")
+    @Column(name = "process_name")
     @NonNull
-    private String code;
+    private String processName;
+    
+    @Column(name = "step_name")
+    @NonNull
+    private String stepName;
+    
+    @Column(name = "level")
+    private int level;
 }

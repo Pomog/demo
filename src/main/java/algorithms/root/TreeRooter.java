@@ -55,7 +55,7 @@ public class TreeRooter<T> {
     }
 
     /**
-     * Process a single vertex in the tree-rooting algorithm.
+     * ProcessEntity a single vertex in the tree-rooting algorithm.
      *
      * @param currentVertex The current vertex being processed.
      * @param queue The queue of vertices to be processed.
@@ -70,7 +70,7 @@ public class TreeRooter<T> {
     }
 
     /**
-     * Process a neighbor vertex in the tree-rooting algorithm.
+     * ProcessEntity a neighbor vertex in the tree-rooting algorithm.
      *
      * @param neighborVertex The neighboring vertex.
      * @param currentVertex The current vertex being processed.

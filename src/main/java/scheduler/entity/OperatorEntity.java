@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Operator {
+public class OperatorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,7 +27,7 @@ public class Operator {
     
     @OneToOne
     @JoinColumn(name = "name")
-    private Settings settings;
+    private SettingsEntity settingsEntity;
     
     @Column(name = "prefers_night")
     private boolean prefersNight;
@@ -39,5 +39,5 @@ public class Operator {
             mappedBy = "skill",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<Skill> skills;
+    private List<SkillEntity> skillEntities;
 }

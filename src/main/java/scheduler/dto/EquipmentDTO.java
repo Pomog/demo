@@ -4,8 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import scheduler.entity.Equipment;
-import scheduler.entity.Step;
+import scheduler.entity.EquipmentEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +20,10 @@ public class EquipmentDTO {
     private String code;
     private List<StepDTO> steps = new ArrayList<>();
     
-    public EquipmentDTO(Equipment equipmentEntity) {
+    public EquipmentDTO(EquipmentEntity equipmentEntity) {
         this.name = equipmentEntity.getName();
         this.code = equipmentEntity.getCode();
-        this.steps.addAll(equipmentEntity.getSteps().stream()
+        this.steps.addAll(equipmentEntity.getStepEntities().stream()
                 .map(StepDTO::new)
                 .collect(Collectors.toList()));
     }

@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Step {
+public class StepEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -26,20 +26,20 @@ public class Step {
     private String stepName;
     
     @OneToMany(
-            mappedBy = "equipment",
+            mappedBy = "equipmentEntities",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<Equipment> equipment;
+    private List<EquipmentEntity> equipmentEntities;
     
     @OneToOne
     @JoinColumn(name = "code")
-    private Room room;
+    private RoomEntity roomEntity;
     
     @OneToMany(
             mappedBy = "operator",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<Operator> operators; // Operators certified for this stage
+    private List<OperatorEntity> operatorEntities; // Operators certified for this stage
     
     @Column(name = "duration")
     private Duration duration;

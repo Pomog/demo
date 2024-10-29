@@ -12,6 +12,18 @@ public class CollectionsTrainings {
         
         int[][] twoD = new int[2][2];
         Arrays.stream(twoD).forEach(arr  -> Arrays.stream(arr).forEach(System.out::println));
+        
+        long[] longs = new long[1];
+        longs[0] = 1L;
+        
+        Number[] numbers = new Number[1];
+        numbers[0] = 1.1D;
+        
+        Number a;
+        System.out.println(a.getClass().getSimpleName());
+        a = numbers[0];
+        System.out.println("Number a = " + a);
+        System.out.println(a.getClass().getSimpleName());
      }
     
     public void run() {
