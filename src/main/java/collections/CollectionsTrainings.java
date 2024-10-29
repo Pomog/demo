@@ -20,7 +20,7 @@ public class CollectionsTrainings {
         numbers[0] = 1.1D;
         
         Number a;
-        System.out.println(a.getClass().getSimpleName());
+//        System.out.println(a.getClass().getSimpleName());
         a = numbers[0];
         System.out.println("Number a = " + a);
         System.out.println(a.getClass().getSimpleName());
