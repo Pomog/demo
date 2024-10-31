@@ -1,5 +1,7 @@
 package algorithms.named.kosaraju;
 
+import algorithms.named.base.Vertex;
+
 public class KosarajuDemo_2 {
     public static void main(String[] args) {
         Vertex<String> v0 = new Vertex<>(0, "0");

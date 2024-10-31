@@ -1,4 +1,4 @@
-package algorithms.named.kosaraju;
+package algorithms.named.base;
 
 import lombok.Data;
 import lombok.NonNull;

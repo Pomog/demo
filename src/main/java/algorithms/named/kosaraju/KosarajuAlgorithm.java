@@ -1,5 +1,6 @@
 package algorithms.named.kosaraju;
 
+import algorithms.named.base.Vertex;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

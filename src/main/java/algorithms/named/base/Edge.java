@@ -1,4 +1,4 @@
-package algorithms.named.kosaraju;
+package algorithms.named.base;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +8,16 @@ import lombok.RequiredArgsConstructor;
 public class Edge<T> {
     private final Vertex<T> from;
     private final Vertex<T> to;
+    private int capacity;
+    private int flow = 0;
+    
+    public int residualCapacity() {
+        return capacity - flow;
+    }
+    
+    public void augmentFlow(int amount) {
+        this.flow += amount;
+    }
     
     @Override
     public boolean equals(Object o) {

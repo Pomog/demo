@@ -1,5 +1,7 @@
 package algorithms.named.kosaraju;
 
+import algorithms.named.base.Edge;
+import algorithms.named.base.Vertex;
 import lombok.Data;
 
 import java.util.ArrayList;
