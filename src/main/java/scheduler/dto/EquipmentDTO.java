@@ -1,9 +1,9 @@
 package scheduler.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import scheduler.entity.EquipmentEntity;
 
 import java.util.ArrayList;
@@ -11,13 +11,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
-@RequiredArgsConstructor
-@NoArgsConstructor
 public class EquipmentDTO {
-    @NonNull
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters")
     private String name;
-    @NonNull
+    
+    @NotBlank(message = "Code cannot be blank")
+    @Pattern(regexp = "[A-Z]{3}-\\d{4}", message = "Code format must be 'AAA-1234'")
     private String code;
+    
     private List<StepDTO> steps = new ArrayList<>();
     
     public EquipmentDTO(EquipmentEntity equipmentEntity) {

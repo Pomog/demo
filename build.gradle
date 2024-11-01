@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'war'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group 'com.demo'
@@ -11,6 +13,7 @@ repositories {
 }
 
 ext {
+    springBootVersion = '3.2.5'
     junitVersion = '5.9.2'
 }
 
@@ -22,6 +25,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 dependencies {
+
+    implementation 'org.jetbrains:annotations:24.0.0'
+    implementation 'org.jetbrains:annotations:24.0.0'
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
