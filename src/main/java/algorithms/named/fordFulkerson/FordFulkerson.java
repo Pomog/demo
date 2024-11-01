@@ -28,6 +28,8 @@ public class FordFulkerson<T> {
                 }
             
             maxFlow += pathFlow;
+            
+            System.out.println(path);
         }
         
         return maxFlow;
